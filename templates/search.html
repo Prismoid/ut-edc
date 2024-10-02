@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search page">
+    <title>Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#" style="font-weight: bold; color: #002366;">UT-EDC</a>
+        <span class="navbar-text">
+            <i class="bi bi-person-circle"></i> {{ username }}
+        </span>
+    </nav>
+
+    <!-- サイドバーとメインコンテンツを囲むコンテナ -->
+    <div class="sidebar-container"">
+        <!-- サイドバー（共通部分） -->
+        <div class="sidebar bg-light">
+            <ul class="list-unstyled">
+                <li><a href="{{ url_for('settings') }}">⚙️ Settings</a></li>
+                <li><a href="{{ url_for('search') }}">🔍 Search</a></li>
+                <li><a href="{{ url_for('download') }}">☁️ Download</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- メインコンテンツ -->
+        <div class="main-content p-4">
+            <h2>Search</h2>
+            <hr>
+            <p>Search functionality coming soon...</p>
+        </div>
+    </div>
+</body>
+</html>

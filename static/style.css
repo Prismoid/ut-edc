@@ -1,0 +1,81 @@
+/* 全体のスタイル調整 */
+body, html {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* スクロールを無効化 */
+}
+
+/* サイドバーのスタイル */
+.sidebar {
+    width: 250px; /* サイドバーの固定幅を設定 */
+    height: 90vh; /* サイドバーの高さを固定 */
+    background-color: #f8f9fa; /* サイドバーの背景色 */
+    border: 2px solid #ddd; /* サイドバー全体を囲むボーダーを追加 */
+    border-radius: 10px; /* サイドバーの角を丸める（オプション） */
+    margin: 20px 10px; /* 上下左右の余白を設定して中央に配置 */
+    padding: 20px; /* 内側の余白を設定 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* ボックスシャドウで立体感を演出 */
+}
+
+/* サイドバー内のリストとリンクのスタイル */
+.sidebar ul {
+    padding-left: 0; /* リストの左側余白をリセット */
+}
+
+.sidebar li {
+    padding: 15px; /* 各リストアイテムの上下左右に余白を設定 */
+    list-style: none; /* リストスタイルを無効化 */
+    text-align: left; /* テキストを左寄せに設定 */
+}
+
+.sidebar li a {
+    text-decoration: none; /* 下線を削除 */
+    color: #333; /* テキストカラー */
+    font-size: 18px; /* 文字サイズを大きく設定 */
+    display: block; /* ブロック要素として表示 */
+    font-weight: bold; /* 文字を太字に設定 */
+    padding: 10px 15px; /* 内側の余白を設定 */
+    border: 1px solid transparent; /* デフォルトでボーダーを透明に */
+    border-radius: 5px; /* リンクの角を丸くする */
+    transition: all 0.3s ease-in-out; /* スタイル変更時のアニメーション */
+}
+
+.sidebar li a:hover {
+    background-color: #ddd; /* ホバー時の背景色を設定 */
+    border: 1px solid #ccc; /* ホバー時にリンクのボーダーを追加 */
+}
+
+/* メインコンテンツのスタイル */
+.main-content {
+    flex-grow: 1; /* サイドバーを除いた残りの領域を埋める */
+    padding: 20px; /* 内側の余白を設定 */
+    background-color: #ffffff; /* 背景色を白に設定 */
+    border: 1px solid #ddd; /* メインコンテンツの枠線を追加 */
+    border-radius: 10px; /* メインコンテンツの角を丸くする */
+    margin: 20px 10px; /* メインコンテンツの上下左右の余白を設定 */
+}
+
+/* ナビゲーションバーのスタイル */
+.navbar {
+    height: 60px; /* 固定された高さ */
+    width: 100vw; /* 画面幅に合わせる */
+    background-color: #ffffff; /* 背景色 */
+    border-bottom: 1px solid #ddd; /* 下側にボーダーを設定 */
+}
+
+/* ナビゲーションバーのテキストスタイル */
+.navbar-brand {
+    font-size: 24px; /* ナビゲーションバーのロゴの文字サイズを設定 */
+    color: #002366; /* ロゴの文字色を設定 */
+}
+
+/* サイドバーの囲み枠をメインコンテンツまで含むスタイル */
+.sidebar-container {
+    display: flex;
+    height: calc(100vh - 80px); /* サイドバーとメインコンテンツを含む全体の高さを調整 */
+    margin: 20px; /* 外側の余白を設定 */
+    border: 2px solid #ddd; /* サイドバーとメインコンテンツ全体を囲むボーダーを追加 */
+    border-radius: 10px; /* 全体の角を丸くする */
+}
