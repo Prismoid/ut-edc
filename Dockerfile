@@ -1,17 +1,17 @@
-# python 3.12 をベースにDockerイメージを作成
+# ベースとなるイメージとして Python 3.12 を使用
 FROM python:3.12
 
 # 作業ディレクトリを指定
 WORKDIR /app
 
-# カレントディレクトリのファイルをDockerコンテナの｢/app｣ ディレクトリにコピー
-ADD . /app
+# ホストのカレントディレクトリの内容を Docker コンテナの /app ディレクトリにコピー
+COPY . /app
 
-# Flaskをインストール
+# Flask をインストール
 RUN pip install Flask
 
-# 外部に公開するポートを指定
-EXPOSE 8000
+# Flask が使用するポートを指定（デフォルトは3000）
+EXPOSE 3000
 
-# コンテナの実行コマンドを指定
+# コンテナ起動時に実行するコマンドを指定
 CMD ["python", "app.py"]
