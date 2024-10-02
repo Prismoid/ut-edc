@@ -79,3 +79,26 @@ body, html {
     border: 2px solid #ddd; /* サイドバーとメインコンテンツ全体を囲むボーダーを追加 */
     border-radius: 10px; /* 全体の角を丸くする */
 }
+
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.status-message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    white-space: pre-wrap; /* 改行を保持して表示 */
+}

@@ -19,6 +19,7 @@ def login():
         # 認証処理
         if username in users and users[username] == password:
             session['user'] = username  # セッションにユーザー情報を保存
+            session['connector_url'] = "" # セッションにコネクタURL情報を保存
             flash('Login successful!', 'success')
             return redirect(url_for('settings'))
         else:
@@ -31,34 +32,35 @@ def settings():
     # ログインしていない場合はログインページへリダイレクト
     if 'user' not in session:
         return redirect(url_for('login'))
-
-    # 認証に成功した場合
+    
+    # 認証に成功した場合、更にconnector_urlを定義可能
     if request.method == 'POST':
-        consumer_connector_url = request.form['consumer-connector']
+        connector_url = request.form['connector-url']
         # コネクタ情報の保存
-        session['consumer_connector_url'] = consumer_connector_url
+        session['connector_url'] = connector_url
         
-    return render_template('settings.html', username=session['user'])
+    return render_template('settings.html', username=session['user'], connector_url=session['connector_url'])
 
 @app.route('/search')
 def search():
     # ログインしていない場合はログインページへリダイレクト
     if 'user' not in session:
         return redirect(url_for('login'))
-    return render_template('search.html', username=session['user'])
+    return render_template('search.html', username=session['user'], connector_url=session['connector_url'])
 
 @app.route('/download')
 def download():
     # ログインしていない場合はログインページへリダイレクト
     if 'user' not in session:
         return redirect(url_for('login'))
-    return render_template('download.html', username=session['user'])
+    return render_template('download.html', username=session['user'], connector_url=session['connector_url'])
 
 @app.route('/logout')
 def logout():
     session.pop('user', None)
     flash('You have been logged out.', 'info')
     return redirect(url_for('login'))
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host='0.0.0.0')

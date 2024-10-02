@@ -29,11 +29,19 @@
         </div>
 
         <!-- メインコンテンツ -->
-        <div class="main-content p-4">
-            <h2>Download</h2>
-            <hr>
-            <p>Download functionality coming soon...</p>
-        </div>
+	<div class="main-content p-4">
+          <h1>Fetch JSON Data from Server</h1>
+          <p>Click the button below to get JSON data from the server.</p>
+	  
+          <!-- ボタンをクリックしてリクエストを実行 -->
+          <button class="fetch-btn" id="fetchButton">Fetch JSON Data</button>
+	  
+          <!-- 取得した JSON データを表示するエリア -->
+          <div class="json-display-area" id="json-output"></div>
+	</div>
+	
+	<!-- 外部の JavaScript ファイルを読み込む -->
+	<script src="../scripts/checkHealth.js"></script>
     </div>
 </body>
 </html>
