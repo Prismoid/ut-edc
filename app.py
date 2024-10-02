@@ -4,7 +4,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # セッション管理用の秘密鍵
 
 # 仮のユーザー情報（データベースと接続する場合はここを修正）
-users = {'0001-seike': 'password123'}
+users = {'0001-seike': '0001-seike'}
 
 @app.route('/')
 def home():
@@ -31,6 +31,13 @@ def settings():
     # ログインしていない場合はログインページへリダイレクト
     if 'user' not in session:
         return redirect(url_for('login'))
+
+    # 認証に成功した場合
+    if request.method == 'POST':
+        consumer_connector_url = request.form['consumer-connector']
+        # コネクタ情報の保存
+        session['consumer_connector_url'] = consumer_connector_url
+        
     return render_template('settings.html', username=session['user'])
 
 @app.route('/search')
@@ -54,4 +61,4 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(debug=True, port=3000)
+    app.run(debug=True, port=5000, host='0.0.0.0')

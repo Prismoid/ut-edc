@@ -10,8 +10,8 @@ COPY . /app
 # Flask をインストール
 RUN pip install Flask
 
-# Flask が使用するポートを指定（デフォルトは3000）
-EXPOSE 3000
+# Flask が使用するポートを指定（デフォルトは5000）
+EXPOSE 5000
 
 # コンテナ起動時に実行するコマンドを指定
 CMD ["python", "app.py"]
